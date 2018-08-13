@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <localRepository>C:\Users\ThinkPad\.m2\repository</localRepository>
+
+<pluginGroups>
+    <pluginGroup>org.mortbay.jetty</pluginGroup>
+  </pluginGroups>
+  <proxies/>
+  <servers/>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>central</mirrorOf>
+      <name>Nexus</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+    </mirror>
+    <mirror>
+      <id>nexus-thirdparty</id>
+      <mirrorOf>thirdparty</mirrorOf>
+      <name>Nexus thirdparty</name>
+      <url>http://maven.aliyun.com/nexus/content/repositories/thirdparty/</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>liferay-maven-plugin</id>
+      <properties>
+        <plugin.type>portlet</plugin.type>
+        <liferay.version>6.2.5</liferay.version>
+        <liferay.maven.plugin.version>6.2.10.11</liferay.maven.plugin.version>
+        <liferay.auto.deploy.dir>E:\liferay6\liferay-portal-6.2-ce-ga5\deploy</liferay.auto.deploy.dir>
+        <liferay.app.server.deploy.dir>E:\liferay6\liferay-portal-6.2-ce-ga5\tomcat-7.0.62\webapps</liferay.app.server.deploy.dir>
+        <liferay.app.server.portal.dir>E:\liferay6\liferay-portal-6.2-ce-ga5\tomcat-7.0.62\webapps\ROOT</liferay.app.server.portal.dir>
+        <liferay.app.server.lib.global.dir>E:\liferay6\liferay-portal-6.2-ce-ga5\tomcat-7.0.62\lib\ext</liferay.app.server.lib.global.dir>
+      </properties>
+      <repositories>
+        <repository>
+          <id>nexus</id>
+          <name>local private nexus</name>
+          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>nexus</id>
+          <name>local private nexus</name>
+          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+
+</settings>

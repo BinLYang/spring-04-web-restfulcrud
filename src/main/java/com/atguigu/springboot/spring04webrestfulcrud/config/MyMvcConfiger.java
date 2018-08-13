@@ -13,6 +13,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class MyMvcConfiger extends WebMvcConfigurerAdapter{
 
+  /*  public EmbeddedServletContainerCustomizer embeddedServletContainerCustomizer(){
+        return new EmbeddedServletContainerCustomizer(){
+            //定制嵌入式的Servlet容器的相关规则
+            public void customize(ConfigurableEmbeddedServletContainer container){
+                container.setPort(8083);
+            }
+        };
+    }*/
+
     @Bean
     public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
         WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
@@ -25,7 +34,7 @@ public class MyMvcConfiger extends WebMvcConfigurerAdapter{
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                    .excludePathPatterns("/","/user/login");
+                    .excludePathPatterns("/","/user/login","/webjars/**","/asserts/**");
             }
 
         };
